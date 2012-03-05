@@ -1,0 +1,46 @@
+//6818. Capital City  http://www.spoj.pl/problems/CAPCITY/
+
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    int N, M; // N cities, M unidirectional roads
+    int a, b, size, temp; //road from a -> b
+    vector<int> cities;
+    vector<int>::iterator it;
+    scanf("%d %d\n", &N, &M);
+    vector<int> adjlist[N+1]; //ignore 0 index
+    for(int i=0;i<M;i++)
+    {
+        scanf("%d %d\n", &a, &b);
+        adjlist[b].push_back(a);
+    }
+    for(int i=1;i<N+1;i++)
+    {
+        temp = adjlist[i].size();
+        for(int j=0;j<temp;j++)
+        {
+            if(adjlist[i][j]>i)
+                adjlist[i].insert(adjlist[i].end(), adjlist[j].begin(), adjlist[j].end());
+        }
+    }
+    for(int i=1;i<N+1;i++)
+    {
+        it = unique(adjlist[i].begin(), adjlist[i].end());
+        adjlist[i].resize(it-adjlist[i].begin());
+        if(adjlist[i].size() == N-1)
+            cities.push_back(i);
+    }
+    size = cities.size();
+    printf("%d\n", size);
+    if(size != 0)
+        printf("%d", cities[0]);
+    for(int i=1;i<size;i++)
+        printf(" %d", cities[i]);
+    return 0;
+}

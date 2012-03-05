@@ -1,0 +1,15 @@
+
+ next is: 1
+ min is 2
+ next is: 3
+ next is: 0cycle
+ min is 4
+ next is: 4
+ min is 5
+ next is: 6
+ next is: 2cycle
+ min is 7
+ next is: 5cycle
+ min is 8
+ next is: 73
+1 2 4 a3 5 7 a6 a8 
