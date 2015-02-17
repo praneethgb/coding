@@ -1,0 +1,10 @@
+		Intent i = new Intent("android.intent.action.MAIN").putExtra("some_msg", "I will be sent!");
+		this.sendBroadcast(i);
+ 
+		this.stopSelf();
+	}
+	http://inchoo.net/dev-talk/android-development/broadcast-receiver-from-activity/
+	Reciever App
+	http://www.techotopia.com/index.php/Android_Broadcast_Intents_and_Broadcast_Receivers
+	http://hmkcode.com/android-sending-receiving-custom-broadcasts/
+	
